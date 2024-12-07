@@ -20,3 +20,8 @@ global using Spectre.Console.Enrichment;
 global using Spectre.Console.Internal;
 global using Spectre.Console.Rendering;
 global using Wcwidth;
+#if NET9_0_OR_GREATER
+global using LockObject = System.Threading.Lock;
+#else
+global using LockObject = object;
+#endif
