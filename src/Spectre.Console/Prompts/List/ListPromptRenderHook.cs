@@ -6,7 +6,7 @@ internal sealed class ListPromptRenderHook<T> : IRenderHook
     private readonly IAnsiConsole _console;
     private readonly Func<IRenderable> _builder;
     private readonly LiveRenderable _live;
-    private readonly object _lock;
+    private readonly object _lock; // can't use LockObject here because of yield returning
     private bool _dirty;
 
     public ListPromptRenderHook(

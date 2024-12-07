@@ -7,7 +7,7 @@ public sealed class LiveDisplayContext
 {
     private readonly IAnsiConsole _console;
 
-    internal object Lock { get; }
+    internal object Lock { get; } // can't use LockObject here because of yield returning
     internal LiveRenderable Live { get; }
 
     internal LiveDisplayContext(IAnsiConsole console, IRenderable target)

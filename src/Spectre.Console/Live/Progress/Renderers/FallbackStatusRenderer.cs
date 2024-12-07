@@ -2,7 +2,7 @@ namespace Spectre.Console;
 
 internal sealed class FallbackStatusRenderer : ProgressRenderer
 {
-    private readonly object _lock;
+    private readonly LockObject _lock;
     private IRenderable? _renderable;
     private string? _lastStatus;
 
@@ -10,7 +10,7 @@ internal sealed class FallbackStatusRenderer : ProgressRenderer
 
     public FallbackStatusRenderer()
     {
-        _lock = new object();
+        _lock = new LockObject();
     }
 
     public override void Update(ProgressContext context)

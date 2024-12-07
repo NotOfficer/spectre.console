@@ -5,7 +5,7 @@ internal sealed class DefaultProgressRenderer : ProgressRenderer
     private readonly IAnsiConsole _console;
     private readonly List<ProgressColumn> _columns;
     private readonly LiveRenderable _live;
-    private readonly object _lock;
+    private readonly object _lock; // can't use LockObject here because of yield returning
     private readonly Stopwatch _stopwatch;
     private readonly bool _hideCompleted;
     private readonly Func<IRenderable, IReadOnlyList<ProgressTask>, IRenderable> _renderHook;
